@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block main %}
+      <div class="jumbotron">
+        <h1>Приложение не сконфигурировано!</h1>
+        <p>Возможные причины:</p>
+        <ul>
+            <li>В config.py не определена переменная <b>APPCONFIG</b> или файл на который она ссылается не найден.</li>
+            <li>Файл <b>APPCONFIG</b> не является JSON файлом.</li>
+            <li>В файле <b>APPCONFIG</b> не указан путь к корню сайта (<b>ROOT_PATH</b>) или этот путь не найден в базе данных.</li>
+        </ul>
+        <p>Пример JSON APPCONFIG</p>
+        <pre>
+{
+ "ROOT_PATH":"a/b/c",
+ "APP_NAME":"Тестовое приложение"
+}
+        </pre>
+        <p><a href="/" class="btn btn-primary btn-lg" role="button">Перейти к титульной странице</a>
+            &nbsp;
+           <a href="http://www.jsoneditoronline.org/" class="btn btn-primary btn-lg" role="button">Редактор JSON</a>
+           &nbsp;
+           <a href="/tree" class="btn btn-primary btn-lg" role="button">Редактор Иерархии</a>
+        </p>
+      </div>
+{% endblock %}

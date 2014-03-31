@@ -1,0 +1,3 @@
+#!/bin/sh
+find . -name "*~" -print | xargs rm
+find . -name "*.pyc" -print | xargs rm

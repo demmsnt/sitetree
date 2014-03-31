@@ -1,0 +1,30 @@
+<html>
+<head>
+<script type="text/javascript" src="{{ url_for('ztree.static', filename='js/jquery-1.4.4.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('ztree.static', filename='js/jquery.ztree.core-3.5.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('ztree.static', filename='js/jquery.ztree.excheck-3.5.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('ztree.static', filename='js/jquery.ztree.exedit-3.5.min.js') }}"></script>
+<link rel="stylesheet" href="{{ url_for('ztree.static', filename='css/zTreeStyle/zTreeStyle.css')}}" type="text/css">
+<link rel="stylesheet" href="{{ url_for('ztree.static', filename='tree/style.css')}}" type="text/css">
+<script type="text/javascript" src="{{ url_for('ztree.static', filename='tree/tree.js') }}"></script>
+<script>
+	
+    var tree = new Tree({
+                  'addNode':'{{url_for('ztree.addNode')}}',
+                  'delNode':'{{url_for('ztree.delNode')}}',
+                  'editNode':'{{url_for('ztree.editNode')}}',
+                  'moveNode':'{{url_for('ztree.moveNode')}}',
+                  'nodes':'{{url_for('ztree.node')}}'
+               });
+	$(document).ready(function(){
+               tree.init('#tree');
+	});
+</script>
+</head>
+<body>
+Tree
+<hr>
+<ul id="tree" class="ztree" style="width:100%; overflow:auto;"></ul>
+
+</body>
+</html>

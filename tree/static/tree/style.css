@@ -1,0 +1,31 @@
+.tree_editBtn {
+    width:16px;
+    height: 16px;
+    border: none;
+    background: url('./buttons/edit.png') no-repeat top left;
+    padding: 2px 8px;
+}
+
+.tree_newBtn {
+    width:16px;
+    height: 16px;
+    border: none;
+    background: url('./buttons/new.png') no-repeat top left;
+    padding: 2px 8px;
+}
+
+.tree_removeBtn {
+    width:16px;
+    height: 16px;
+    border: none;
+    background: url('./buttons/remove.png') no-repeat top left;
+    padding: 2px 8px;
+}
+
+.tree_infoBtn {
+    width:16px;
+    height: 16px;
+    border: none;
+    background: url('./buttons/info.png') no-repeat top left;
+    padding: 2px 8px;
+}
