@@ -74,8 +74,12 @@
 	                var btn = $("#tree_removeBtn_"+treeNode.id);
 	                if (btn) btn.bind("click", function(){that.delNode(treeNode);});
 
+			var btn = $("#tree_infoBtn_"+treeNode.id);
+	                if (btn) btn.bind("click", function(){that.infoNode(treeNode);});
         };
-
+      this.infoNode = function(node) {
+		console.log('info',node);
+	}
       this.addNode = function(parent) {
 //         console.log('parent',parent);
          var ansver=prompt("Enter node name");
