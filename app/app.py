@@ -20,6 +20,7 @@ def create_app(config=None, blueprints=None):
             m = __import__(k)
             app.register_blueprint(m.bp, url_prefix=v['url_prefix'])
     if 'initdb' in sys.argv:
+        app.logger.debug('Init tatabase')
         with app.app_context():
             database.db.create_all()
     return app

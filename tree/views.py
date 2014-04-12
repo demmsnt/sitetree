@@ -20,6 +20,10 @@ ztree = Blueprint('ztree', __name__,
 def root():
     return render_template('tree.html')
 
+@ztree.route('/style.css')
+def style():
+    return render_template('style.css')
+	
 
 @ztree.route('/_tree/nodes', methods=['POST'])
 @requires_auth
@@ -27,6 +31,7 @@ def node():
     d=[]
     if 'id' in request.form:
         r_id = int(request.form['id'])
+        current_app.logger.debug('r_id %i' % r_id)
         if r_id==-1:
             searchf = TNode.getRootNodes()
         else:
