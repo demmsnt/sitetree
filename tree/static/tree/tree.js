@@ -34,7 +34,7 @@
       setting.async.url = urlpath.nodes;
       var that = this;
       that.setting = setting;
-      var urls = urlpath
+      var urls = urlpath;
       this.addDiyDom = function (treeId, treeNode) {
                 var aObj = $("#" + treeNode.tId + "_a");
                 if ($("#diyBtn_"+treeNode.id).length>0) return;
@@ -77,9 +77,25 @@
 			var btn = $("#tree_infoBtn_"+treeNode.id);
 	                if (btn) btn.bind("click", function(){that.infoNode(treeNode);});
         };
+
       this.infoNode = function(node) {
-		console.log('info',node);
+        $.ajax({
+                url: urls['getInfo']+'?oid='+node.id,
+                success:function (data){
+                    $('<div id="overlayed_dialog"><textarea name="meta">'+data+'</textarea><br><button id="savebtn">Save</button><button id="cancelbtn">Cancel</button></div>').appendTo('body');
+                    $('#cancelbtn').bind('click', function(){$('#overlayed_dialog').remove()});
+                    $('#savebtn').bind('click', function(){
+                                $.ajax({
+                                        type:'POST', 
+                                        url:urls['setInfo'], 
+                                        data:{'meta':$("#overlayed_dialog [name='meta']").val(),id: node.id},
+                                        success: function () {$('#overlayed_dialog').remove()}
+                                    });
+                                });
+                    }
+        });
 	}
+
       this.addNode = function(parent) {
 //         console.log('parent',parent);
          var ansver=prompt("Enter node name");

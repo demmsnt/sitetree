@@ -29,3 +29,13 @@
     background: url('./buttons/info.png') no-repeat top left;
     padding: 2px 8px;
 }
+
+#overlayed_dialog {
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    right: 10px;
+    bottom: 10px;
+    background:white;
+    border:1px solid black;
+}
